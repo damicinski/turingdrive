@@ -50,17 +50,17 @@ class DataProcessor():
             writer = csv.writer(f)
             writer.writerow( ('timestamp','angle') )
             for image in folderContent:
-            #Search the main csv for the closest timestamp for each image in each folder
-            if image.endswith(self._imageFiletype):
-                    imageName = image.split('.')[0]
-                    if imageName in self._originalCSV:
-                        timestampIndex = self._originalCSV.index(imageName)
-                    else:
-                        timestampIndex = min(range(len(self._originalCSV)), key=lambda i: abs(int(self._originalCSV[i][0])-int(imageName)))
-                    timestamp = self._originalCSV[timestampIndex][0]
-                    angle = self._originalCSV[timestampIndex][1]
-                    subCsvFileContent.append( (timestamp, angle) )
-            #Make sure that the sub csv file is sorted based on the first elemnt in each tuple
+                #Search the main csv for the closest timestamp for each image in each folder
+                if image.endswith(self._imageFiletype):
+                        imageName = image.split('.')[0]
+                        if imageName in self._originalCSV:
+                            timestampIndex = self._originalCSV.index(imageName)
+                        else:
+                            timestampIndex = min(range(len(self._originalCSV)), key=lambda i: abs(int(self._originalCSV[i][0])-int(imageName)))
+                        timestamp = self._originalCSV[timestampIndex][0]
+                        angle = self._originalCSV[timestampIndex][1]
+                        subCsvFileContent.append( (timestamp, angle) )
+            #Make sure that the sub csv file is sorted based on the first element in each tuple
             subCsvFileContent.sort(key=lambda tup: tup[0])
             while len(subCsvFileContent) != 0:
                 item = subCsvFileContent.pop(0)
