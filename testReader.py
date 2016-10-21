@@ -29,10 +29,10 @@ def read_and_decode_single_example(filename):
 
 
 # get single examples
-label, image = read_and_decode_single_example("mnist.tfrecords")
+label, image = read_and_decode_single_example("turing1.tfrecords")
 # groups examples into batches randomly
 images_batch, labels_batch = tf.train.shuffle_batch(
-    [image, label], batch_size=128,
+    [image, label], batch_size=4,
     capacity=2000,
     min_after_dequeue=1000)
 
@@ -42,7 +42,10 @@ sess.run(init)
 tf.train.start_queue_runners(sess=sess)
 labels, images = sess.run([labels_batch, images_batch])
 
-print(labels)
+print "labels:"
+print labels
+print "images:"
+print images
 
 
 
