@@ -26,7 +26,7 @@ class CnnNetwork():
             conv1 = nc.conv_layer(self._PH_x, filter_shape, stride, reluLeakyness, padding = "SAME")
             layers.append(conv1)
 
-        #Convolution 2
+        # Convolution 2
         with tf.name_scope('Convolution_2') as scope:
             input_depth = layers[-1].get_shape().as_list()[3]
             filterDepth = 16
@@ -49,12 +49,12 @@ class CnnNetwork():
             conv3 = nc.conv_layer(inpt, filter_shape, stride, reluLeakyness, padding = "SAME")
             layers.append(conv3)
 
-        # Pooling 1
+        # Pooling 2
         with tf.name_scope('Pooling_2') as scope:
             pool2 = nc.pooling_layer(layers[-1],2)
             layers.append(pool2)
 
-        #Reshape
+        # Reshape
         with tf.name_scope('Reshape') as scope:
             p2Size = np.prod(np.array(h_pool2.get_shape().as_list()[1:]))
             pool2_flat = tf.reshape(h_pool2, [-1, p2Size])
@@ -77,7 +77,8 @@ class CnnNetwork():
 
         self._y = layers[-1]
 
-        #Mean square error
+        # Mean square error
         self._mse = tf.reduce_sum(tf.pow(self._PH_y_-self._y,2))/(2*self._batch_size)
-        #AdamOptimizer minimizing mean square error
+        
+        # AdamOptimizer minimizing mean square error
         self._train_step = tf.train.AdamOptimizer(self._learningRate).minimize(self._mse)
