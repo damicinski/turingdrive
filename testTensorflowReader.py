@@ -1,6 +1,6 @@
 
 # =============================================================================
-# 					A quick test of how tfreader works in practice 
+#                   A quick test of how tfreader works in practice 
 #
 # Code from tensorflow tutorial using mnist and a single hidden layer fc 
 # network is modified to support a tfrecords reader instead of the feed_dict 
@@ -11,7 +11,7 @@ import tensorflow as tf
 import numpy as np
 
 # =============================================================================
-# 					READ AND DECODE 
+#                   READ AND DECODE 
 # =============================================================================
 def read_and_decode_single_example(filename):
     # first construct a queue containing a list of filenames.
@@ -113,10 +113,10 @@ Run the training step 1000 times. At each iteration of the loop, we get at "batc
 '''
 
 for i in range(1000):
-#	batch_xs, batch_ys = mnist.train.next_batch(100)
-	print i
-#	sess.run(train_step, feed_dict = {x: images_batch, y_: labels_batch})
-	sess.run(train_step)
+#   batch_xs, batch_ys = mnist.train.next_batch(100)
+    print i
+#   sess.run(train_step, feed_dict = {x: images_batch, y_: labels_batch})
+    sess.run(train_step)
 
 # Evaluating our model 
 
