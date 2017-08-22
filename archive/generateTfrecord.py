@@ -74,8 +74,8 @@ imgHeight = 480
 imgWidth = 640 
 imgCh = 3
 
-pathToImages = '/Users/bergepraktik/udacityChallenge/dataset2-1-160929/center_camera/'
-pathToCsv = '/Users/bergepraktik/udacityChallenge/dataset2-1-160929/'
+pathToImages = '/home/deepjedi/dat/udacity/challenge2/dataset2-1-160929/center_camera/'
+pathToCsv = '/home/deepjedi/dat/udacity/challenge2/dataset2-1-160929/'
 
 #pathToImages = '/Users/bergepraktik/udacityChallenge/tempData/images/'
 #pathToCsv = '/Users/bergepraktik/udacityChallenge/tempData/'

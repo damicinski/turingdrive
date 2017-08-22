@@ -2,6 +2,9 @@
 # import os
 
 import pandas as pd
+import tensorflow as tf
+import tf.contrib.
+
 
 # from os import listdir
 # from os.path import splitext
